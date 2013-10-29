@@ -11,42 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028134814) do
+ActiveRecord::Schema.define(version: 20131029092306) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
     t.boolean  "public"
-    t.integer  "assignment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "students", force: true do |t|
+  create_table "courses_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "due_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "students_courses", force: true do |t|
-    t.integer  "student_id"
-    t.integer  "course_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "teachers", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "teachers_courses", force: true do |t|
-    t.integer  "teacher_id"
-    t.integer  "course_id"
+    t.string   "user_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

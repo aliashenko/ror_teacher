@@ -4,8 +4,10 @@ one:
   first_name: MyString
   last_name: MyString
   email: MyString
+  user_type: MyString
 
 two:
   first_name: MyString
   last_name: MyString
   email: MyString
+  user_type: MyString
