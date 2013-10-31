@@ -2,6 +2,7 @@ RorTeacher::Application.routes.draw do
 
   resources :users
   resources :courses
+  resources :courses_user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
