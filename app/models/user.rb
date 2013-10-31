@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
     user_type == "teacher"
   end
 
+  def has_course?(course)
+    courses.include?(course)
+  end
+
 end
