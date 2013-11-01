@@ -8,6 +8,8 @@ gem 'bootstrap-sass', '2.1'
 gem 'sqlite3'
 gem 'rspec-rails', '2.11.0'
 gem 'faker', '1.0.1'
+gem 'therubyracer'
+gem 'execjs'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

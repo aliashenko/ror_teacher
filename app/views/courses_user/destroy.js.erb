@@ -1,0 +1,1 @@
+$("#user_row_<%= @course.id %>").html("<%= escape_javascript(render partial: 'user', locals: { course: @course }) %>");
