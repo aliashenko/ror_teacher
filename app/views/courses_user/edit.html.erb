@@ -1,5 +1,5 @@
 <ul class = "courses">
-  <%= form_tag courses_user_index_path, method: :post do %>
+  <%= form_tag courses_user_path, :method => :patch do %>
     <%= hidden_field_tag "user_id", @user.id %>
     <% for course in @courses %>
       <%= render partial: 'user', locals: { course: course } %>
