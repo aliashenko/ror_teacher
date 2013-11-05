@@ -28,11 +28,11 @@ namespace :db do
                   )
     end
     5.times do
-      name = Faker::Name.first_name
+      name = Faker::Lorem.word.capitalize!
       Course.create!(name: name,
                      public: true
                     )
-      name = Faker::Name.first_name
+      name = Faker::Lorem.word.capitalize!
       Course.create!(name: name,
                      public: false
                     )

@@ -1,12 +1,11 @@
 class StaticPagesController < ApplicationController
 
-  def home
+  require 'ffaker'
+
+  def about
   end
 
-  def users
-  end
-
-  def courses
+  def contact
   end
 
 end
