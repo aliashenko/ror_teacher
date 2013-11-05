@@ -7,9 +7,10 @@ gem 'bootstrap-sass', '2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'rspec-rails', '2.11.0'
-gem 'faker', '1.0.1'
+gem 'ffaker'
 gem 'therubyracer'
 gem 'execjs'
+gem 'will_paginate', '3.0.4'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
