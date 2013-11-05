@@ -1,4 +1,4 @@
-<ul class = "courses">
+<ul class = "courses_user">
   <%= form_tag courses_user_path, :method => :patch do %>
     <%= hidden_field_tag "user_id", @user.id %>
     <% for course in @courses %>

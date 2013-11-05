@@ -1,0 +1,70 @@
+@import "bootstrap";
+
+$grayMediumLight: #eaeaea;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* Courses index */
+
+.courses {
+  list-style: none;
+  margin: 0;
+  li {
+    font-weight: bold;
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+  }
+}
+
+.courses_user {
+  list-style: none;
+  margin: 0;
+  li {
+    font-weight: bold;
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    label {
+      display: inline-block;
+    }
+  }
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    font-weight: bold;
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    a{
+      float: right;
+    }
+  }
+}
