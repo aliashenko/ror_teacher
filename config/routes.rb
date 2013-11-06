@@ -1,13 +1,14 @@
 RorTeacher::Application.routes.draw do
 
+  devise_for :users
   resources :users
   resources :courses
   resources :courses_user
 
   root "courses#index"
-  match '/home',    to: 'courses#index',        via: 'get'
-  match '/about',   to: 'static_pages#about',   via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
+  get '/',        to: 'courses#index', as: "home"
+  get '/about',   to: 'static_pages#about'
+  get '/contact', to: 'static_pages#contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,10 +1,17 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   has_many :courses_users
   has_many :courses, through: :courses_users
-  validates :first_name, :last_name, :user_type, presence: true
+  #validates :first_name, :last_name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :email, presence:   true,
-                    format:     { with: VALID_EMAIL_REGEX }
+                    format:     { with: VALID_EMAIL_REGEX },
+                    uniqueness: true
+
 
   def is_student?
     user_type == "student"
