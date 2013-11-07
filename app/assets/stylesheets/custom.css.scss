@@ -203,6 +203,10 @@ input {
   @extend .error;
 }
 
+.nav-collapse.collapse {
+  height: auto!important;
+  overflow: visible!important;
+}
 
 /* Courses index */
 
