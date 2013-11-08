@@ -2,17 +2,20 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = User.new( first_name: "Anna", last_name: "Romanova", email: "anna@mail.com", user_type: "student" )
+    @user = User.new( first_name: "Anna", last_name: "Romanova", email: "anna@mail.com", user_type: "student", password: 'password' )
   end
 
   subject { @user }
-  it { should be_valid }
   it { should respond_to(:first_name) }
   it { should respond_to(:last_name) }
   it { should respond_to(:email) }
   it { should respond_to(:user_type) }
   it { should respond_to(:is_student?) }
   it { should respond_to(:is_teacher?) }
+  it { should respond_to(:has_course?) }
+
+  it { should be_valid }
+  it { should_not be_admin }
 
 
   describe "when first name is not present" do
@@ -68,6 +71,18 @@ describe User do
     end
     it "should be false" do
       expect( @user.is_teacher? ).to be_false
+    end
+  end
+
+  describe "has_course" do
+    before { @course = Course.new( name: "RoR", public: true ) }
+    it "should be true" do
+      @user.courses << @course
+      expect( @user.has_course?( @course ) ).to be_true
+    end
+    it "should be false" do
+      @course.name = "Rails"
+      expect( @user.has_course?( @course ) ).to be_false
     end
   end
 
