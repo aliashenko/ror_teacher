@@ -2,7 +2,7 @@
   <% @students.each do |student| %>
     <li>
     <%= link_to full_name(student), user_path(student.id) %>
-    <%= link_to "Assign course", edit_courses_user_path(student.id), method: :get, :class => "Assign" %>
+    <%= link_to 'Assign course', edit_courses_user_path(student.id), method: :get, class: :"assign" %>
     </li>
   <% end %>
 </ul>
