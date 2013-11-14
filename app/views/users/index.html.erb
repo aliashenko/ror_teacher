@@ -1,7 +1,8 @@
 <ul class = "users">
   <% @students.each do |student| %>
-    <li><%= full_name(student) %>
-      <%= link_to "Assign course", edit_courses_user_path(student.id), method: :get %>
+    <li>
+    <%= link_to full_name(student), user_path(student.id) %>
+    <%= link_to "Assign course", edit_courses_user_path(student.id), method: :get, :class => "Assign" %>
     </li>
   <% end %>
 </ul>

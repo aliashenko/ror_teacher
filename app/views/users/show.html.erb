@@ -1,0 +1,10 @@
+<h1>
+  <%= gravatar_for @user %>
+  <%= full_name(@user) %>
+</h1>
+
+<ul class = "courses">
+  <% @courses.each do |course| %>
+    <li><%= course.name %></li>
+  <% end %>
+</ul>
