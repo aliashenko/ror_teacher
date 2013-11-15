@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: true
 
+  has_attached_file :avatar
 
   def is_student?
     user_type == "student"
@@ -25,4 +26,7 @@ class User < ActiveRecord::Base
     courses.include?(course)
   end
 
+  def is_admin?
+    admin == true
+  end
 end
