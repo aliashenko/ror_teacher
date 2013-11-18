@@ -1,7 +1,6 @@
 <ul class = "users">
   <% @students.each do |student| %>
     <li>
-    <%= gravatar_for student, size: 50 %>
     <%= link_to full_name(student), user_path(student.id) %>
     <%= link_to 'Assign course', edit_courses_user_path(student.id), method: :get, class: :"assign" %>
     </li>

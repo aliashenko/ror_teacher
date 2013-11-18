@@ -8,4 +8,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @courses = @user.courses
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:avatar)
+    end
+
 end

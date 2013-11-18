@@ -12,7 +12,9 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: true
 
-  has_attached_file :avatar
+  has_attached_file :avatar, :styles => { :small => "150x150>" },
+                  :url  => "/assets/users/:id/:style/:basename.:extension",
+                  :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
 
   def is_student?
     user_type == "student"
