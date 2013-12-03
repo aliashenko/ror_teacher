@@ -8,6 +8,7 @@ namespace :db do
                  password:    "password",
                  password_confirmation: "password",
                  admin:       true
+                 # avatar:      "app/assets/images/large/missing.png"
                 )
     50.times do |n|
       first_name  = Faker::Name.first_name
@@ -20,6 +21,7 @@ namespace :db do
                    #user_type:   "",
                    password:    password,
                    password_confirmation: password
+                   # avatar:      "app/assets/images/large/missing.png"
                   )
     end
 

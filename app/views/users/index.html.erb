@@ -1,9 +1,10 @@
-<ul class = "users">
+<div class = "users">
   <% @students.each do |student| %>
     <li>
+    <%= image_tag student.avatar.url(:thumb) %>
     <%= link_to full_name(student), user_path(student.id) %>
     <%= link_to 'Assign course', edit_courses_user_path(student.id), method: :get, class: :"assign" %>
     </li>
   <% end %>
-</ul>
+</div>
 <%= will_paginate @students, class: :"pagination pagination-centered" %>
