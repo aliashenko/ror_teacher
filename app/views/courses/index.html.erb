@@ -7,6 +7,12 @@
 </div>
 <ul class = "courses">
   <% @courses.each do |course| %>
-    <li><%= course.name %></li>
+    <li><%= course.name %>
+      <% if course.is_public? %>
+        <%= link_to 'Start course', course_path(course.id), method: :get, class: :assign %>
+      <% elsif @user.courses.include?(course) %>
+        <%= link_to 'View course', course_path(course.id), method: :get, class: :assign %>
+      <% end %>
+    </li>
   <% end %>
 </ul>

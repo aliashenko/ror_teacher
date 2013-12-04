@@ -11,9 +11,10 @@
 </div>
 <div class="row">
   <ul class = "courses">
-
     <% @courses.each do |course| %>
-      <li><%= course.name %></li>
-  <% end %>
+      <li><%= course.name %>
+        <%= link_to 'Start course', course_path(course.id), method: :get, class: :assign if course.is_public? %>
+      </li>
+    <% end %>
   </ul>
 </div>
