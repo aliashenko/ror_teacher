@@ -8,17 +8,11 @@
     </div>
     <% if @user==current_user || current_user.is_teacher? %>
       <div class="span2">
-      <%= current_user.is_teacher? ? () : (link_to 'Assign course', edit_courses_user_path(@user.id), method: :get, class: :assign) %>
-    </div>
-  <% end %>
+        <%= current_user.is_teacher? ? () : (link_to 'Assign course', edit_courses_user_path(@user.id), method: :get, class: :assign) %>
+      </div>
+    <% end %>
   </div>
   <div class="row">
-    <ul class = "courses">
-      <% @courses.each do |course| %>
-        <li><%= course.name %>
-          <%= link_to 'Start course', course_path(course.id), method: :get, class: :assign if course.is_public? %>
-        </li>
-      <% end %>
-    </ul>
+    <%= render 'courses' %>
   </div>
 <% end %>
