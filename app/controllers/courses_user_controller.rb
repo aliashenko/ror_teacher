@@ -12,9 +12,15 @@ class CoursesUserController < ApplicationController
     redirect_to @user
   end
 
+  def start
+    @course = Course.find(params[:course_id])
+    @user.courses << @course
+    redirect_to @course
+  end
+
   private
 
     def find_user
-      @user = User.find(params[:id])
+      @user = User.find(params[:id] || params[:user_id])
     end
 end
