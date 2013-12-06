@@ -3,7 +3,11 @@
     <li>
     <%= image_tag student.avatar.url(:thumb) %>
     <%= link_to full_name(student), user_path(student.id) %>
-    <%= link_to 'Assign course', edit_courses_user_path(student.id), method: :get, class: :"assign" %>
+    <% if current_user && current_user.is_teacher? %>
+      <%= link_to 'Assign course', edit_courses_user_path(student.id), method: :get, class: :"assign" %>
+    <% else %>
+      <%= link_to 'View profile', user_path(student.id), class: :"assign" %>
+    <% end %>
     </li>
   <% end %>
 </div>

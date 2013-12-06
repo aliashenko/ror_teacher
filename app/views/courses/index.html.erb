@@ -8,10 +8,14 @@
 <ul class = "courses">
   <% @courses.each do |course| %>
     <li><%= course.name %>
-      <% if course.is_public? %>
-        <%= link_to 'Start course', course_path(course.id), method: :get, class: :assign %>
-      <% elsif @user.courses.include?(course) %>
-        <%= link_to 'View course', course_path(course.id), method: :get, class: :assign %>
+      <% if user_signed_in? %>
+        <% if @user.courses.include?(course) %>
+          <%= link_to 'View course', course_path(course.id), method: :get, class: :assign %>
+        <% else %>
+          <% if course.is_public? %>
+            <%= link_to 'Start course', course_path(course.id), method: :get, class: :assign %>
+          <% end %>
+        <% end %>
       <% end %>
     </li>
   <% end %>

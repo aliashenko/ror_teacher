@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :signed_in_user, only: [:index, :show]
+
   def index
     @students = User.where(user_type: "student").paginate(:page => params[:page], :per_page => 15).order(last_name: :asc)
   end
@@ -13,6 +15,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:avatar)
+  end
+
+  def signed_in_user
+    redirect_to root_url unless user_signed_in?
   end
 
 end
