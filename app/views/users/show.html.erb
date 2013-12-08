@@ -8,7 +8,7 @@
     </div>
     <% if @user==current_user || current_user.is_teacher? %>
       <div class="span2">
-        <%= current_user.is_teacher? ? () : (link_to 'Assign course', edit_courses_user_path(@user.id), method: :get, class: :assign) %>
+        <%= link_to 'Assign course', edit_courses_user_path(@user.id), class: "assign" %>
       </div>
     <% end %>
   </div>
