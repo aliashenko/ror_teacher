@@ -2,7 +2,7 @@
   <% @courses.each do |course| %>
     <li><%= course.name %>
       <% if user_signed_in? %>
-        <% if @user.courses.include?(course) %>
+        <% if @viewable_courses.include?(course) %>
           <%= link_to 'View course', course_path(course.id), method: :get, class: :assign %>
         <% else %>
           <% if course.is_public? %>

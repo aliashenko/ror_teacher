@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 
-  before_action :teacher_courses
+  before_action :get_viewable_courses
 
   def index
     @courses = Course.all.order( name: :asc )
@@ -13,8 +13,17 @@ class CoursesController < ApplicationController
 
   private
 
-  def teacher_courses
-    current_user.courses = Course.all if user_signed_in? && current_user.is_teacher?
+  def get_viewable_courses
+    @viewable_courses = []
+    if user_signed_in?
+      @viewable_courses = if current_user.is_teacher?
+        Course.all
+      elsif @user
+        @user.courses
+      else
+        current_user.courses
+      end
+    end
   end
 
 end
