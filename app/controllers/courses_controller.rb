@@ -11,6 +11,10 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+  def edit
+    @course = Course.find(params[:id])
+  end
+
   private
 
   def get_viewable_courses

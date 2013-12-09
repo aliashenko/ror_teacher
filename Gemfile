@@ -17,6 +17,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'jquery-turbolinks'
 gem 'thin'
 gem 'paperclip'
+gem 'ckeditor'
+gem 'ckeditor_rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
