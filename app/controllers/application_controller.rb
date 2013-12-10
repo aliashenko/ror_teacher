@@ -8,6 +8,18 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_path unless current_user.try(:is_admin?)
   end
 
+  def get_viewable_courses
+    @viewable_courses = []
+    if user_signed_in?
+      @viewable_courses = if current_user.is_teacher?
+        Course.all
+      elsif @user
+        @user.courses
+      else
+        current_user.courses
+      end
+    end
+  end
 
   protected
 
