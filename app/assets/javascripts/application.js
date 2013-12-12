@@ -17,5 +17,6 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-//
-//
+$('.ckeditor').ckeditor({
+  // optional config
+});

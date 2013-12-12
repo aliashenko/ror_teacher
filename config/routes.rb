@@ -3,7 +3,9 @@ RorTeacher::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for  :users
   resources   :users
-  resources   :courses
+  resources   :courses do
+    resources :pages
+  end
   resources   :courses_user
 
   root  'courses#index'

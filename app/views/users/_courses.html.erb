@@ -3,7 +3,7 @@
     <li><%= course.name %>
       <% if user_signed_in? %>
         <% if @viewable_courses.include?(course) %>
-          <%= link_to 'View course', course_path(course.id), method: :get, class: :assign %>
+          <%= link_to 'View course', course_path(course.id), class: :assign %>
         <% else %>
           <% if course.is_public? %>
             <%= link_to 'Start course', courses_user_start_path(course_id: course.id, user_id: current_user), method: :post, class: :assign %>

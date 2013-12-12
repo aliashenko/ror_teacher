@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20131114170045) do
 
   create_table "pages", force: true do |t|
     t.integer  "course_id"
+    t.string   "name"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

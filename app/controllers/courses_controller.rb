@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @pages  = Page.all
   end
 
   def edit
