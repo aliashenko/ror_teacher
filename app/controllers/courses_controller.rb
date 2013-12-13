@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
 
   before_action :get_viewable_courses
+  before_action :find_course, only: [:show, :edit]
 
   def index
     @courses = Course.all.order( name: :asc )
@@ -8,11 +9,12 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
-    @pages  = Page.all
+    @pages  = @course.pages
   end
 
-  def edit
+  private
+
+  def find_course
     @course = Course.find(params[:id])
   end
 
