@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = User.new( first_name: "Anna", last_name: "Romanova", email: "anna@mail.com", user_type: "student", password: 'password' )
+    @user = User.new( first_name: "Anna", last_name: "Romanova", email: "anna@mail.com", user_type: "student", password: 'password', admin: false )
   end
 
   subject { @user }
@@ -13,6 +13,7 @@ describe User do
   it { should respond_to(:is_student?) }
   it { should respond_to(:is_teacher?) }
   it { should respond_to(:has_course?) }
+  it { should respond_to(:is_admin?) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -86,4 +87,13 @@ describe User do
     end
   end
 
+  describe "is_admin" do
+    it "should be true" do
+      @user.admin = true
+      expect( @user.is_admin? ).to be_true
+    end
+    it "should be false" do
+      expect( @user.is_admin? ).to be_false
+    end
+  end
 end

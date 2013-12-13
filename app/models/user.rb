@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :courses_users
   has_many :courses, through: :courses_users
-  # validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
