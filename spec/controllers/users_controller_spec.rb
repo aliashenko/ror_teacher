@@ -14,7 +14,7 @@ describe UsersController do
     end
 
     it "contains only students" do
-      expect(assigns(@students)).to eq(:student)
+      expect(@students).to include(student)
     end
   end
 end
