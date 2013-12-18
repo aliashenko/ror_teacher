@@ -43,6 +43,10 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'simplecov', :require => false, :group => :test
 
+group :test do
+  gem 'factory_girl_rails', '4.2.1'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

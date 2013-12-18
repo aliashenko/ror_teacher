@@ -18,7 +18,7 @@ namespace :db do
       User.create!(first_name:  first_name,
                    last_name:   last_name,
                    email:       email,
-                   #user_type:   "",
+                   user_type:   "student",
                    password:    password,
                    password_confirmation: password
                    # avatar:      "app/assets/images/large/missing.png"

@@ -4,7 +4,7 @@ class Course < ActiveRecord::Base
   has_many :pages
   has_many :assignments
 
-  validates :name, :public, presence: true
+  validates :name, presence: true
   def is_public?
     public == true
   end
