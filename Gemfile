@@ -6,7 +6,6 @@ gem 'bootstrap-sass', '2.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'rspec-rails', '2.11.0'
 gem 'ffaker'
 gem 'therubyracer'
 gem 'execjs'
@@ -45,6 +44,8 @@ gem 'simplecov', :require => false, :group => :test
 
 group :test do
   gem 'factory_girl_rails', '4.2.1'
+  gem 'rspec-rails', '2.11.0'
+  gem 'database_cleaner'
 end
 
 group :doc do
@@ -56,7 +57,7 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
-group :development do
+group :development, :test do
   gem 'quiet_assets'
   gem 'pry-rails'
 end
