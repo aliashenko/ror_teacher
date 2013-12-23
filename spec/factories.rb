@@ -14,4 +14,10 @@ FactoryGirl.define do
     name                  Faker::Lorem.word.capitalize!
     public                true
   end
+
+  factory :page do
+    course
+    sequence(:name)       { |n| "#{n} page "}
+    content               Faker::Lorem.sentence
+  end
 end

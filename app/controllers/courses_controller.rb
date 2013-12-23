@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @pages  = @course.pages
+    @pages = @course.pages
   end
 
   private

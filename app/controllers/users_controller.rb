@@ -14,10 +14,6 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:avatar)
-  end
-
   def signed_in_user
     redirect_to root_url unless user_signed_in?
   end
