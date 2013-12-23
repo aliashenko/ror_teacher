@@ -28,8 +28,8 @@ describe CoursesController do
   describe "GET #show" do
     before { get :show, id: course }
 
-    let(:page)        { FactoryGirl.create(:page) }
-    let(:other_page)  { FactoryGirl.create(:page) }
+    let(:page)        { FactoryGirl.create(:page, course: course) }
+    let(:other_page)  { FactoryGirl.create(:page, course: course) }
 
     it "returns success response" do
       expect(response).to be_success
@@ -40,8 +40,6 @@ describe CoursesController do
     end
 
     it "shows all available pages" do
-      course.pages << page
-      course.pages << other_page
       expect(assigns[:pages]).to include(page, other_page)
     end
   end
