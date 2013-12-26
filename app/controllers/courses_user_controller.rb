@@ -7,8 +7,8 @@ class CoursesUserController < ApplicationController
   end
 
   def update
-    courses = Course.where(id: params[:courses_ids].map{ |x, y| y })
-    @user.courses = courses
+    @courses = Course.where(id: (params[:courses_ids] || [] ).map{ |x, y| y })
+    @user.courses = @courses
     redirect_to @user
   end
 
