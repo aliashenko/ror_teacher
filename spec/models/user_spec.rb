@@ -6,6 +6,10 @@ describe User do
   end
 
   subject { @user }
+
+  it { should have_many(:courses_users) }
+  it { should have_many(:courses).through(:courses_users) }
+
   it { should respond_to(:first_name) }
   it { should respond_to(:last_name) }
   it { should respond_to(:email) }
