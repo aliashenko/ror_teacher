@@ -31,6 +31,10 @@ describe CoursesUserController do
       expect(assigns[:courses]).to eq([first_course, second_course])
     end
 
+    it "assigns courses to user" do
+      expect(assigns[:user].courses).to eq([first_course, second_course])
+    end
+
     it "submits a PATCH request to the CoursesUser#update action" do
       expect(response).to redirect_to(user_path(user.id))
     end
@@ -38,6 +42,14 @@ describe CoursesUserController do
 
   describe "POST #start" do
     before { post :start, id: user, course_id: first_course }
+
+    it "finds right course" do
+      expect(assigns[:course]).to eq(first_course)
+    end
+
+    it "assigns courses to user" do
+      expect(assigns[:user].courses).to eq([first_course])
+    end
 
     it "submits a POST request to the CoursesUser#start action" do
       expect(response).to redirect_to(first_course)
