@@ -19,6 +19,8 @@ gem 'paperclip'
 gem 'ckeditor'
 gem 'ckeditor_rails'
 
+gem "lol_dba"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
