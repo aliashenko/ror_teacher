@@ -17,7 +17,11 @@ FactoryGirl.define do
 
   factory :page do
     course
-    sequence(:name)       { |n| "#{n} page "}
+    sequence(:name)       { |n| "#{n} page"}
     content               Faker::Lorem.sentence
+  end
+
+  factory :page_invalid, parent: :page do
+    name                  "ABCDEFGHIJKLMNOPQRSTU"
   end
 end
