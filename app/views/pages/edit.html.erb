@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="span8 offset2">
+    <h1><%= @course.name %></h1>
+  </div>
+  <div class="span8 offset2">
+    <h2><%= @page.name %></h2>
+  </div>
+</div>
+
+<div class="row">
+  <%= form_for @page, url: course_page_path(params[:course_id], params[:id]) do |f| %>
+    <%= cktext_area :page, :content %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+  <%#<textarea class="ckeditor" name="editor1"></textarea>%>
+</div>
