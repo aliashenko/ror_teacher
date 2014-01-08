@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :find_course
+  before_action :find_page, only: [:show, :edit]
 
   def new
      @page = @course.pages.new
@@ -15,8 +16,15 @@ class PagesController < ApplicationController
     end
   end
 
-  def show
-    @page = Page.find(params[:id])
+  def update
+    @page = @course.pages.where(id: (params[:id])).first
+    @page.update_attributes(page_params)
+    if @page.save
+      flash[:success] = "Contect was successfully updated"
+      redirect_to course_page_path(@course, @page)
+    else
+      render 'edit'
+    end
   end
 
   private
@@ -28,4 +36,9 @@ class PagesController < ApplicationController
   def find_course
     @course = Course.find(params[:course_id])
   end
+
+  def find_page
+    @page = Page.find(params[:id])
+  end
+
 end
