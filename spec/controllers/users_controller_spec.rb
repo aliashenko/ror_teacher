@@ -1,12 +1,13 @@
 require 'spec_helper'
 require 'database_cleaner'
 
-describe UsersController do
+describe UsersController, :type => :controller do
+  include AuthHelper
 
   let(:teacher) { FactoryGirl.create(:user, user_type: 'teacher') }
   let(:student) { FactoryGirl.create(:user) }
 
-  before { controller.stub(:current_user).and_return(student) }
+  before(:each) { login(student) }
 
   describe "GET #index" do
     before { get :index }

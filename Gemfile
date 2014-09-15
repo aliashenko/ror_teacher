@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.6'
 gem 'bootstrap-sass', '2.1'
 
 # Use sqlite3 as the database for Active Record
@@ -19,7 +19,7 @@ gem 'paperclip'
 gem 'ckeditor'
 gem 'ckeditor_rails'
 
-gem "lol_dba"
+gem 'lol_dba'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -46,9 +46,11 @@ gem 'simplecov', :require => false, :group => :test
 
 group :test do
   gem 'factory_girl_rails', '4.2.1'
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails'
+  gem 'rspec-mocks'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'minitest-rails'
 end
 
 group :doc do
@@ -57,10 +59,11 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.12.2'
+  gem 'pg'
 end
 
 group :development, :test do
   gem 'quiet_assets'
   gem 'pry-rails'
+  gem 'spring'
 end

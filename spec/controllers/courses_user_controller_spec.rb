@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'database_cleaner'
 
-describe CoursesUserController do
+describe CoursesUserController, :type => :controller do
 
   let(:user)          { FactoryGirl.create(:user) }
   let(:first_course)  { FactoryGirl.create(:course) }
@@ -16,7 +16,7 @@ describe CoursesUserController do
     end
 
     it "renders the edit template" do
-      expect(response).to render_template("edit")
+      expect(response).to render_template(:edit)
     end
 
     it "contains all courses" do

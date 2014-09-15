@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_action :find_page, only: [:show, :edit]
 
   def new
-     @page = @course.pages.new
+    @page = @course.pages.new
   end
 
   def create

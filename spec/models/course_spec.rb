@@ -23,12 +23,12 @@ describe Course do
 
   describe "is_public?" do
     it "should be true" do
-      expect( @course.is_public? ).to be_true
+      expect( @course.is_public? ).to be_truthy
     end
 
     it "should be false" do
       @course.public = false
-      expect( @course.is_public? ).to be_false
+      expect( @course.is_public? ).to be_falsey
     end
   end
 

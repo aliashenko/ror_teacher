@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = User.new( first_name: "Anna", last_name: "Romanova", email: "anna@mail.com", user_type: "student", password: 'password', admin: false )
+    @user = User.new( first_name: 'Anna', last_name: 'Romanova', email: 'anna@mail.com', user_type: 'student', password: 'password', admin: false )
   end
 
   subject { @user }
@@ -25,16 +25,19 @@ describe User do
 
   describe "when first name is not present" do
     before { @user.first_name = " " }
+
     it { should_not be_valid }
   end
 
   describe "when last name is not present" do
     before { @user.last_name = " " }
+
     it { should_not be_valid }
   end
 
   describe "when email is not present" do
     before { @user.email = " " }
+
     it { should_not be_valid }
   end
 
@@ -61,21 +64,21 @@ describe User do
 
   describe "is_student" do
     it "should be true" do
-      expect( @user.is_student? ).to be_true
+      expect( @user.is_student? ).to be_truthy
     end
     it "should be false" do
       @user.user_type = "teacher"
-      expect( @user.is_student? ).to be_false
+      expect( @user.is_student? ).to be_falsey
     end
   end
 
   describe "is_teacher" do
     it "should be true" do
       @user.user_type = "teacher"
-      expect( @user.is_teacher? ).to be_true
+      expect( @user.is_teacher? ).to be_truthy
     end
     it "should be false" do
-      expect( @user.is_teacher? ).to be_false
+      expect( @user.is_teacher? ).to be_falsey
     end
   end
 
@@ -83,21 +86,21 @@ describe User do
     before { @course = Course.new( name: "RoR", public: true ) }
     it "should be true" do
       @user.courses << @course
-      expect( @user.has_course?( @course ) ).to be_true
+      expect( @user.has_course?( @course ) ).to be_truthy
     end
     it "should be false" do
       @course.name = "Rails"
-      expect( @user.has_course?( @course ) ).to be_false
+      expect( @user.has_course?( @course ) ).to be_falsey
     end
   end
 
   describe "is_admin" do
     it "should be true" do
       @user.admin = true
-      expect( @user.is_admin? ).to be_true
+      expect( @user.is_admin? ).to be_truthy
     end
     it "should be false" do
-      expect( @user.is_admin? ).to be_false
+      expect( @user.is_admin? ).to be_falsey
     end
   end
 end

@@ -1,13 +1,14 @@
 require 'spec_helper'
 require 'database_cleaner'
 
-describe CoursesController do
+describe CoursesController, :type => :controller do
+  include AuthHelper
 
-  let(:user)          { FactoryGirl.create(:user) }
-  let(:course)        { FactoryGirl.create(:course) }
-  let(:other_course)  { FactoryGirl.create(:course) }
+  let(:user)         { FactoryGirl.create(:user) }
+  let(:course)       { FactoryGirl.create(:course) }
+  let(:other_course) { FactoryGirl.create(:course) }
 
-  before { controller.stub(:current_user).and_return(user) }
+  before(:each) { login(user) }
 
   describe "GET #index" do
     before { get :index }
@@ -28,8 +29,8 @@ describe CoursesController do
   describe "GET #show" do
     before { get :show, id: course }
 
-    let(:page)        { FactoryGirl.create(:page, course: course) }
-    let(:other_page)  { FactoryGirl.create(:page, course: course) }
+    let(:page)       { FactoryGirl.create(:page, course: course) }
+    let(:other_page) { FactoryGirl.create(:page, course: course) }
 
     it "returns success response" do
       expect(response).to be_success
