@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20131227124845) do
     t.datetime "updated_at"
   end
 
+  add_index "assignments", ["course_id"], name: "index_assignments_on_course_id"
+
   create_table "courses", force: true do |t|
     t.string   "name"
     t.boolean  "public"
@@ -52,6 +54,11 @@ ActiveRecord::Schema.define(version: 20131227124845) do
     t.datetime "updated_at"
   end
 
+  add_index "courses_users", ["course_id", "user_id"], name: "index_courses_users_on_course_id_and_user_id"
+  add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id"
+  add_index "courses_users", ["owner_id"], name: "index_courses_users_on_owner_id"
+  add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id"
+
   create_table "pages", force: true do |t|
     t.integer  "course_id"
     t.string   "name"
@@ -59,6 +66,8 @@ ActiveRecord::Schema.define(version: 20131227124845) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pages", ["course_id"], name: "index_pages_on_course_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"
